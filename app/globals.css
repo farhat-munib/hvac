@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* ================================================================== */
+/* Theme — "warm modern home comfort"                                  */
+/* Cream paper + warm charcoal, terracotta (heat) & deep teal (cool).  */
+/* Editorial Fraunces display + Plus Jakarta Sans body.                */
+/* ================================================================== */
+@theme {
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* Surfaces */
+  --color-paper: #faf6ef; /* warm off-white base */
+  --color-sand: #f1e8da; /* deeper card / section tint */
+  --color-sand-deep: #e9dcc8;
+  --color-ink: #211a14; /* warm near-black for dark sections */
+  --color-ink-2: #2c241c; /* raised surface on dark */
+  --color-ink-soft: #6c5f52; /* warm taupe body text */
+
+  /* Heating — terracotta / clay */
+  --color-clay-50: #fbeee6;
+  --color-clay-100: #f7dccb;
+  --color-clay-200: #f0bfa3;
+  --color-clay-400: #ec7d4f;
+  --color-clay-500: #de5727;
+  --color-clay-600: #c0431a;
+  --color-clay-700: #9b3614;
+
+  /* Cooling — deep teal */
+  --color-teal-50: #e4f1ee;
+  --color-teal-100: #c4e2dc;
+  --color-teal-300: #5cab9f;
+  --color-teal-500: #1f8377;
+  --color-teal-600: #146b61;
+  --color-teal-700: #0d524a;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtle paper grain — kills flat backgrounds, adds tactile warmth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Keep real content above the grain layer */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+::selection {
+  background: var(--color-clay-500);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                           */
+/* ------------------------------------------------------------------ */
+
+/* Tactile, warm, diffuse shadows (no hard borders) */
+.shadow-soft {
+  box-shadow:
+    0 1px 2px rgba(33, 26, 20, 0.04),
+    0 10px 30px -12px rgba(33, 26, 20, 0.14);
+}
+.shadow-soft-lg {
+  box-shadow:
+    0 2px 6px rgba(33, 26, 20, 0.05),
+    0 30px 60px -20px rgba(33, 26, 20, 0.22);
+}
+.shadow-float {
+  box-shadow:
+    0 2px 8px rgba(33, 26, 20, 0.08),
+    0 18px 40px -16px rgba(33, 26, 20, 0.28);
+}
+
+/* Atmospheric radial glows */
+.glow-clay {
+  background: radial-gradient(
+    closest-side,
+    rgba(222, 87, 39, 0.22),
+    transparent
+  );
+}
+.glow-teal {
+  background: radial-gradient(
+    closest-side,
+    rgba(20, 107, 97, 0.2),
+    transparent
+  );
+}
+
+/* Small-caps editorial eyebrow */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Hand-set underline accent under a headline word */
+.ink-underline {
+  background-image: linear-gradient(
+    transparent 62%,
+    rgba(222, 87, 39, 0.28) 62%
+  );
+  background-repeat: no-repeat;
+}
+
+/* Page-load reveal */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Slow drift for floating hero cards */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+.float-y {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise-in,
+  .float-y {
+    animation: none;
+  }
+}
