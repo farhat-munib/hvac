@@ -52,7 +52,8 @@ components/
   Header.tsx        # sticky header, click-to-call, mobile menu (client)
   Hero.tsx          # split hero: serif headline, dual CTAs, floating cards
   Services.tsx      # bento grid (dark featured tile + mixed-size tiles)
-  WhyChooseUs.tsx   # numbered editorial value list + stat strip
+  HowWeWork.tsx     # 4-step process with connector line
+  WhyChooseUs.tsx   # image split + value props + stat strip
   ServiceArea.tsx   # Denver metro + suburbs, radial coverage graphic
   Testimonials.tsx  # 3 staggered serif review quotes
   OfferBanner.tsx   # $89 tune-up / 0% financing coupon panel

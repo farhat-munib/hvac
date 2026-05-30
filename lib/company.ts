@@ -24,6 +24,7 @@ export const company = {
 
 export const navLinks = [
   { label: "Services", href: "#services" },
+  { label: "Process", href: "#how-we-work" },
   { label: "Why Us", href: "#why-us" },
   { label: "Service Area", href: "#service-area" },
   { label: "Reviews", href: "#reviews" },
