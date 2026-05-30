@@ -1,20 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { company, navLinks } from "@/lib/company";
 import { PhoneIcon, ArrowRightIcon, MenuIcon, CloseIcon } from "./icons";
-
-function Mark() {
-  // Cool-over-warm split dot inside a dark disc — the brand glyph.
-  return (
-    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-ink">
-      <span className="flex h-3.5 w-3.5 flex-col overflow-hidden rounded-full">
-        <span className="flex-1 bg-teal-300" />
-        <span className="flex-1 bg-clay-500" />
-      </span>
-    </span>
-  );
-}
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -37,17 +26,16 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
-          {/* Wordmark */}
-          <a href="#top" className="flex items-center gap-3">
-            <Mark />
-            <span className="leading-none">
-              <span className="block font-display text-[19px] font-semibold tracking-tight text-ink">
-                Nyc Heating <span className="italic text-clay-600">&amp;</span> Air
-              </span>
-              <span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.2em] text-teal-600">
-                Heating · Cooling · Air
-              </span>
-            </span>
+          {/* Logo */}
+          <a href="#top" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Nyc Heating & Air"
+              width={160}
+              height={48}
+              className="h-16 w-auto object-contain"
+              priority
+            />
           </a>
 
           {/* Desktop nav */}

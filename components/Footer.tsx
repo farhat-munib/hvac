@@ -1,16 +1,6 @@
+import Image from "next/image";
 import { company, navLinks, serviceAreas } from "@/lib/company";
 import { PhoneIcon, ClockIcon, PinIcon } from "./icons";
-
-function Mark() {
-  return (
-    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-paper/10">
-      <span className="flex h-3.5 w-3.5 flex-col overflow-hidden rounded-full">
-        <span className="flex-1 bg-teal-300" />
-        <span className="flex-1 bg-clay-500" />
-      </span>
-    </span>
-  );
-}
 
 function Social({ d, label }: { d: string; label: string }) {
   return (
@@ -48,11 +38,14 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <a href="#top" className="flex items-center gap-3">
-              <Mark />
-              <span className="font-display text-xl font-semibold tracking-tight text-paper">
-                Nyc Heating <span className="italic text-clay-400">&amp;</span> Air
-              </span>
+            <a href="#top" className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Nyc Heating & Air"
+                width={160}
+                height={48}
+                className="h-16 w-auto object-contain brightness-0 invert"
+              />
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
               {company.tagline} Serving the {company.city} metro for over{" "}
