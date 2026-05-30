@@ -10,8 +10,7 @@ import {
   BoltIcon,
 } from "./icons";
 
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1100&q=80";
+const HERO_IMG = "/hero.webp";
 
 const trust = [
   { icon: ShieldIcon, label: "Licensed & insured" },
@@ -94,13 +93,13 @@ export default function Hero() {
 
         {/* Framed photo + floating cards */}
         <div className="rise-in relative" style={{ animationDelay: "0.2s" }}>
-          <div className="relative h-[360px] overflow-hidden rounded-[28px] shadow-soft-lg sm:h-[460px]">
+          <div className="relative h-[480px] overflow-hidden rounded-[28px] shadow-soft-lg sm:h-[580px] lg:h-[640px]">
             <Image
               src={HERO_IMG}
               alt="HVAC technician servicing a residential cooling system"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
+              className="object-cover object-top"
               priority
             />
             <div

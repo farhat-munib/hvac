@@ -13,54 +13,72 @@ const base = {
 };
 
 export function SnowflakeIcon(props: IconProps) {
+  // Six-armed snowflake with branch ticks — universally recognised as AC/cooling
   return (
     <svg {...base} {...props}>
-      <path d="M12 2v20M4.2 6.5l15.6 9M19.8 6.5L4.2 15.5" />
-      <path d="M12 5l2.2 2.2L12 9.4 9.8 7.2 12 5ZM12 19l2.2-2.2L12 14.6 9.8 16.8 12 19Z" />
+      <path d="M12 2v20M2 12h20M5.64 5.64l12.72 12.72M18.36 5.64 5.64 18.36" />
+      <path d="M9 4.5 12 7l3-2.5M9 19.5 12 17l3 2.5M4.5 9 7 12l-2.5 3M19.5 9 17 12l2.5 3" />
     </svg>
   );
 }
 
 export function FlameIcon(props: IconProps) {
+  // Solid flame silhouette — furnace / heating
   return (
     <svg {...base} {...props}>
-      <path d="M12 3c.6 3-1.8 4.4-2.9 6.2-1 1.7-1.6 3.4-1.6 5A4.5 4.5 0 0 0 16.5 14c0-1.5-.7-2.9-1.6-4 .2 1.3-.5 2.4-1.4 2.6.7-2.6-.5-4.8-1.5-6.1C11 5.3 11.6 4 12 3Z" />
+      <path d="M12 2c0 4.5-5 6.5-5 12a5 5 0 0 0 10 0c0-3-1.5-5-2.5-6.5.1 1.8-1 3-1.5 3.5C13.5 9 13 5.5 12 2Z" />
+      <path d="M12 16a2 2 0 0 1 2 2" strokeOpacity="0.4" />
     </svg>
   );
 }
 
 export function HeatPumpIcon(props: IconProps) {
+  // Outdoor heat-pump unit: cabinet + fan circle + bidirectional arrows showing heat exchange
   return (
     <svg {...base} {...props}>
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <circle cx="12" cy="12" r="3.4" />
-      <path d="M12 8.6v6.8M8.6 12h6.8" />
+      <rect x="2" y="7" width="20" height="13" rx="2" />
+      <path d="M2 11h20" />
+      <circle cx="12" cy="16" r="3" />
+      <path d="M12 13v6M9 16h6" strokeOpacity="0.45" />
+      <path d="M6 7V5M10 7V4M14 7V4M18 7V5" />
     </svg>
   );
 }
 
 export function AirQualityIcon(props: IconProps) {
+  // Air filter / purifier: a house outline with a leaf/sparkle inside — indoor air quality
   return (
     <svg {...base} {...props}>
-      <path d="M4 9h9.5a2.5 2.5 0 1 0-2.5-2.5" />
-      <path d="M3 14h13a2.5 2.5 0 1 1-2.5 2.5" />
-      <path d="M3 19h7.5a2 2 0 1 0-2-2" />
+      <path d="M3 11.5 12 4l9 7.5" />
+      <path d="M5 10v10h14V10" />
+      <path d="M9 20v-5h6v5" />
+      <path d="M12 10a2 2 0 0 1 0 4 2 2 0 0 1 0-4Z" />
+      <path d="M12 8v1M12 15v1M10.3 9.3l.7.7M13.7 13l.7.7M9 12H8M16 12h-1M10.3 14.7l.7-.7M13.7 11l.7-.7" />
     </svg>
   );
 }
 
 export function DuctIcon(props: IconProps) {
+  // Branching duct system: horizontal main trunk with two drop branches + registers
   return (
     <svg {...base} {...props}>
-      <path d="M3 8h7v8H3zM10 9.5l5-2.5v10l-5-2.5M19 7v10" />
+      <rect x="2" y="6" width="20" height="5" rx="1.5" />
+      <path d="M7 11v5M17 11v5" />
+      <rect x="5" y="16" width="4" height="2.5" rx="0.75" />
+      <rect x="15" y="16" width="4" height="2.5" rx="0.75" />
+      <path d="M5 8.5h3M11 8.5h2" strokeOpacity="0.4" />
     </svg>
   );
 }
 
 export function WrenchIcon(props: IconProps) {
+  // Clipboard with checklist + small wrench — maintenance / service plan
   return (
     <svg {...base} {...props}>
-      <path d="M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5l-2.5 2.5-2.5-.6-.6-2.5 2.6-2.4Z" />
+      <path d="M8 3H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2" />
+      <rect x="8" y="2" width="8" height="3" rx="1" />
+      <path d="M9 12l2 2 4-4" />
+      <path d="M9 17h4" />
     </svg>
   );
 }

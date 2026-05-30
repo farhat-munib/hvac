@@ -21,11 +21,11 @@ export default function Header() {
       <div
         className={`w-full transition-all duration-300 ${
           scrolled
-            ? "border-b border-sand-deep bg-paper/85 backdrop-blur-md"
+            ? "bg-paper/90 shadow-[0_1px_12px_-2px_rgba(33,26,20,0.12)] backdrop-blur-md"
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2 lg:px-8">
           {/* Logo */}
           <a href="#top" className="flex items-center">
             <Image
