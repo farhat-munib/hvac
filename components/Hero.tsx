@@ -20,12 +20,15 @@ const trust = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
+    <section
+      id="top"
+      className="relative overflow-hidden lg:flex lg:min-h-[calc(100svh-4rem)] lg:items-center"
+    >
       {/* Atmosphere */}
-      <div className="glow-clay pointer-events-none absolute -right-32 -top-24 h-[34rem] w-[34rem] rounded-full" aria-hidden />
-      <div className="glow-teal pointer-events-none absolute -left-40 top-1/2 h-[30rem] w-[30rem] rounded-full" aria-hidden />
+      <div className="glow-clay pointer-events-none absolute -right-16 top-6 h-[30rem] w-[30rem] rounded-full" aria-hidden />
+      <div className="glow-teal pointer-events-none absolute -left-32 top-[24%] h-[28rem] w-[28rem] rounded-full" aria-hidden />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-8 lg:pb-24 lg:pt-16">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pt-24 pb-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-8 lg:py-0">
         {/* Copy */}
         <div className="max-w-xl">
           <span
@@ -93,13 +96,13 @@ export default function Hero() {
 
         {/* Framed photo + floating cards */}
         <div className="rise-in relative" style={{ animationDelay: "0.2s" }}>
-          <div className="relative h-[480px] overflow-hidden rounded-[28px] shadow-soft-lg sm:h-[580px] lg:h-[640px]">
+          <div className="relative h-[440px] overflow-hidden rounded-[28px] shadow-soft-lg sm:h-[540px] lg:h-[calc(100svh-13rem)] lg:max-h-[600px] lg:min-h-[460px]">
             <Image
               src={HERO_IMG}
               alt="HVAC technician servicing a residential cooling system"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover object-top"
+              className="object-cover object-[center_28%]"
               priority
             />
             <div
