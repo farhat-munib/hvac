@@ -33,7 +33,7 @@ export default function Header() {
               alt="Nyc Heating & Air"
               width={160}
               height={48}
-              className="h-16 w-auto object-contain"
+              className="h-14 w-auto object-contain"
               priority
             />
           </a>

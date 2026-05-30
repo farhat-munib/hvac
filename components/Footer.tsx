@@ -44,7 +44,7 @@ export default function Footer() {
                 alt="Nyc Heating & Air"
                 width={160}
                 height={48}
-                className="h-16 w-auto object-contain brightness-0 invert"
+                className="h-14 w-auto object-contain brightness-0 invert"
               />
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
