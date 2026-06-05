@@ -46,7 +46,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="relative overflow-hidden bg-ink py-20 text-paper lg:py-28"
+      className="on-dark relative overflow-hidden bg-ink py-20 text-paper lg:py-28"
     >
       <div
         className="glow-clay pointer-events-none absolute -right-32 top-0 h-[28rem] w-[28rem] rounded-full opacity-70"
@@ -99,11 +99,11 @@ export default function WhyChooseUs() {
           {/* Heading + value props */}
           <div>
             <span className="eyebrow text-clay-400">Why homeowners choose us</span>
-            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h2 className="text-fluid-h2 mt-3 font-display font-bold">
               The dependable name in{" "}
-              <span className="italic text-clay-400">{company.city} comfort.</span>
+              <span className="text-clay-400">{company.city} comfort.</span>
             </h2>
-            <p className="mt-4 max-w-md text-lg text-paper/65">
+            <p className="mt-4 max-w-md text-lg text-paper/75">
               Licensed, bonded, and insured with financing available — we treat
               every home like it’s our own.
             </p>
@@ -122,7 +122,7 @@ export default function WhyChooseUs() {
                   </span>
                   <div>
                     <h3 className="font-display text-xl font-semibold">{title}</h3>
-                    <p className="mt-1 text-[15px] leading-relaxed text-paper/65">
+                    <p className="mt-1 text-[15px] leading-relaxed text-paper/75">
                       {blurb}
                     </p>
                   </div>

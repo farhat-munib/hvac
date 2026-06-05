@@ -7,6 +7,7 @@ import {
   WrenchIcon,
   ArrowRightIcon,
 } from "./icons";
+import Reveal from "./Reveal";
 
 type Tone = "clay" | "teal";
 
@@ -14,6 +15,9 @@ const toneChip: Record<Tone, string> = {
   clay: "bg-clay-50 text-clay-600 group-hover:bg-clay-500 group-hover:text-white",
   teal: "bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white",
 };
+
+const cardBase =
+  "group flex flex-col justify-between rounded-[26px] border border-sand-deep/60 bg-gradient-to-b from-white to-paper p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-sand-deep hover:shadow-soft-lg";
 
 const small = [
   {
@@ -58,21 +62,22 @@ export default function Services() {
     <section id="services" className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {/* Editorial heading row */}
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <span className="eyebrow text-teal-600">What we do</span>
-            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-              Comfort, covered <span className="italic text-clay-600">end to end.</span>
+            <h2 className="text-fluid-h2 mt-3 font-display font-bold text-ink">
+              Comfort, covered{" "}
+              <span className="ink-underline text-clay-600">end to end.</span>
             </h2>
           </div>
           <p className="max-w-sm text-[15px] leading-relaxed text-ink-soft">
             One licensed team for every system in your home or building — repairs,
             installs, and the upkeep that keeps them running.
           </p>
-        </div>
+        </Reveal>
 
         {/* Bento grid */}
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[minmax(170px,1fr)]">
+        <Reveal className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[minmax(170px,1fr)]">
           {/* Featured dark tile */}
           <article className="group relative flex flex-col justify-between overflow-hidden rounded-[26px] bg-ink p-7 text-paper shadow-soft sm:col-span-2 lg:col-span-3 lg:row-span-2">
             <div
@@ -105,10 +110,7 @@ export default function Services() {
 
           {/* Light tiles */}
           {small.map(({ icon: Icon, title, blurb, tone, span }) => (
-            <article
-              key={title}
-              className={`group flex flex-col justify-between rounded-[26px] bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg ${span}`}
-            >
+            <article key={title} className={`${cardBase} ${span}`}>
               <div>
                 <span
                   className={`grid h-12 w-12 place-items-center rounded-xl transition-colors duration-300 ${toneChip[tone]}`}
@@ -135,7 +137,7 @@ export default function Services() {
               </a>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

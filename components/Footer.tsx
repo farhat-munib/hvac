@@ -33,7 +33,11 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-paper/70">
+    <footer className="on-dark relative bg-ink text-paper/70">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-clay-500/50 to-transparent"
+        aria-hidden
+      />
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}

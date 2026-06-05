@@ -31,8 +31,8 @@ npm run lint     # eslint
 - **Palette:** two accents instead of generic blue-on-white — **terracotta**
   (heating) and **deep teal** (cooling), defined as theme tokens in
   [`app/globals.css`](app/globals.css).
-- **Type:** **Fraunces** (characterful editorial serif) for display + Plus
-  Jakarta Sans (body), loaded via `next/font/google`.
+- **Type:** **Bricolage Grotesque** (characterful modern display) for headings +
+  Plus Jakarta Sans (body), loaded via `next/font/google`.
 - **Texture & depth:** subtle paper grain, soft radial glows, and tactile
   diffuse shadows (no hard 1px-border cards).
 - **Layouts:** split hero with floating glass cards, a **bento** services grid,

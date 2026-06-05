@@ -1,4 +1,5 @@
 import { StarIcon } from "./icons";
+import Reveal from "./Reveal";
 
 const reviews = [
   {
@@ -37,9 +38,9 @@ export default function Testimonials() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <span className="eyebrow text-teal-600">What neighbors say</span>
-            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-              Rated <span className="italic text-clay-600">4.9 stars</span> across
-              800+ reviews.
+            <h2 className="text-fluid-h2 mt-3 font-display font-bold text-ink">
+              Rated <span className="ink-underline text-clay-600">4.9 stars</span>{" "}
+              across 800+ reviews.
             </h2>
           </div>
           <div className="flex items-center gap-2">
@@ -53,10 +54,12 @@ export default function Testimonials() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {reviews.map((r) => (
-            <figure
+          {reviews.map((r, i) => (
+            <Reveal
+              as="figure"
               key={r.name}
-              className={`relative flex h-full flex-col rounded-[26px] bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg ${r.offset}`}
+              delay={i * 100}
+              className={`relative flex h-full flex-col rounded-[26px] border border-sand-deep/60 bg-gradient-to-b from-white to-paper p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-sand-deep hover:shadow-soft-lg ${r.offset}`}
             >
               <span
                 className={`font-display text-6xl leading-none ${
@@ -84,7 +87,7 @@ export default function Testimonials() {
                   <span className="block text-sm text-ink-soft">{r.location}</span>
                 </span>
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
         </div>
       </div>

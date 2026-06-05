@@ -40,13 +40,11 @@ export default function Hero() {
           </span>
 
           <h1
-            className="rise-in mt-5 font-display text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.02em] text-ink sm:text-6xl"
+            className="rise-in text-fluid-hero mt-5 font-display font-bold text-ink"
             style={{ animationDelay: "0.08s" }}
           >
             Stay perfectly comfortable,{" "}
-            <span className="ink-underline italic text-clay-600">
-              all year long.
-            </span>
+            <span className="ink-underline text-clay-600">all year long.</span>
           </h1>
 
           <p
@@ -64,14 +62,14 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group flex items-center justify-center gap-2 rounded-full bg-clay-500 px-7 py-4 text-base font-bold text-white shadow-float transition-all hover:-translate-y-0.5 hover:bg-clay-600"
+              className="btn-primary group flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-bold"
             >
               Book Service
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href={company.phoneHref}
-              className="flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-paper/60 px-7 py-4 text-base font-bold text-ink backdrop-blur transition-colors hover:border-ink/40"
+              className="btn-ghost flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-bold"
             >
               <PhoneIcon className="h-5 w-5 text-teal-600" />
               {company.phoneDisplay}

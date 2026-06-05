@@ -3,11 +3,14 @@
 /* ================================================================== */
 /* Theme — "warm modern home comfort"                                  */
 /* Cream paper + warm charcoal, terracotta (heat) & deep teal (cool).  */
-/* Editorial Fraunces display + Plus Jakarta Sans body.                */
+/* Bricolage Grotesque display + Plus Jakarta Sans body.               */
 /* ================================================================== */
 @theme {
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* Shared motion easing */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Surfaces */
   --color-paper: #faf6ef; /* warm off-white base */
@@ -48,6 +51,16 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Bricolage display: tighten tracking + balanced wraps for headline polish */
+.font-display {
+  letter-spacing: -0.015em;
+  font-feature-settings: "ss01";
+}
+h1.font-display,
+h2.font-display {
+  text-wrap: balance;
 }
 
 /* Subtle paper grain — kills flat backgrounds, adds tactile warmth */
@@ -131,6 +144,102 @@ section[id] {
   background-repeat: no-repeat;
 }
 
+/* ------------------------------------------------------------------ */
+/* Fluid display type — smooth scaling, no breakpoint jumps            */
+/* ------------------------------------------------------------------ */
+.text-fluid-hero {
+  font-size: clamp(2.6rem, 6.2vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+.text-fluid-h2 {
+  font-size: clamp(2.1rem, 4.2vw, 3.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* ------------------------------------------------------------------ */
+/* Button system — consistent, premium primary + ghost                 */
+/* ------------------------------------------------------------------ */
+.btn-primary {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-clay-400),
+    var(--color-clay-600)
+  );
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 2px 8px rgba(33, 26, 20, 0.1),
+    0 14px 30px -12px rgba(192, 67, 26, 0.55);
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out),
+    filter 0.25s var(--ease-out);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 4px 12px rgba(33, 26, 20, 0.12),
+    0 20px 40px -14px rgba(192, 67, 26, 0.6);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 2px rgba(33, 26, 20, 0.25),
+    0 2px 6px rgba(33, 26, 20, 0.12);
+}
+
+.btn-ghost {
+  background-color: rgba(250, 246, 239, 0.55);
+  border: 1px solid rgba(33, 26, 20, 0.14);
+  color: var(--color-ink);
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out);
+}
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  border-color: rgba(33, 26, 20, 0.32);
+  background-color: rgba(250, 246, 239, 0.8);
+}
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus-visible — consistent, accessible, on-brand                    */
+/* ------------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--color-clay-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--color-clay-400);
+}
+
+/* ------------------------------------------------------------------ */
+/* Subtle scroll reveal (IntersectionObserver toggles .is-visible)     */
+/* ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* Page-load reveal */
 @keyframes rise-in {
   from {
@@ -167,5 +276,10 @@ section[id] {
   .rise-in,
   .float-y {
     animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

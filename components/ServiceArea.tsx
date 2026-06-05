@@ -18,9 +18,9 @@ export default function ServiceArea() {
           {/* Copy + suburb chips */}
           <div>
             <span className="eyebrow text-teal-600">Where we work</span>
-            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+            <h2 className="text-fluid-h2 mt-3 font-display font-bold text-ink">
               Serving the whole{" "}
-              <span className="italic text-clay-600">{company.city} metro.</span>
+              <span className="ink-underline text-clay-600">{company.city} metro.</span>
             </h2>
             <p className="mt-4 max-w-md text-lg text-ink-soft">
               Based in {company.city}, {company.state}, our trucks cover the
@@ -42,7 +42,7 @@ export default function ServiceArea() {
 
             <a
               href={company.phoneHref}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-bold text-paper transition-colors hover:bg-teal-700"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-bold text-paper shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700"
             >
               <PhoneIcon className="h-5 w-5" />
               Not sure if we cover you? Call us

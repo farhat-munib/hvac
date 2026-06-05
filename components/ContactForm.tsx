@@ -73,7 +73,8 @@ export default function ContactForm() {
   const fieldBase =
     "w-full rounded-xl border bg-paper px-4 py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-ink-soft/50 focus:ring-4";
   const ok = "border-sand-deep focus:border-clay-500 focus:ring-clay-500/15";
-  const bad = "border-red-400 focus:border-red-500 focus:ring-red-500/15";
+  const bad =
+    "border-[#c4362c] focus:border-[#c4362c] focus:ring-[#c4362c]/15";
 
   return (
     <section id="contact" className="relative overflow-hidden py-20 lg:py-28">
@@ -86,9 +87,9 @@ export default function ContactForm() {
           {/* Left: pitch + contact details */}
           <div>
             <span className="eyebrow text-teal-600">Request a free quote</span>
-            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+            <h2 className="text-fluid-h2 mt-3 font-display font-bold text-ink">
               Let’s get your comfort{" "}
-              <span className="italic text-clay-600">back on track.</span>
+              <span className="ink-underline text-clay-600">back on track.</span>
             </h2>
             <p className="mt-4 max-w-md text-lg text-ink-soft">
               Tell us what’s going on and we’ll follow up fast — usually within
@@ -258,7 +259,7 @@ export default function ContactForm() {
 
                 <button
                   type="submit"
-                  className="group flex w-full items-center justify-center gap-2 rounded-full bg-clay-500 px-6 py-4 text-base font-bold text-white shadow-float transition-all hover:-translate-y-0.5 hover:bg-clay-600"
+                  className="btn-primary group flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-bold"
                 >
                   Request my free quote
                   <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -297,7 +298,7 @@ function Field({
       </label>
       {children}
       {error && (
-        <p className="mt-1.5 text-sm font-medium text-red-500">{error}</p>
+        <p className="mt-1.5 text-sm font-medium text-[#c4362c]">{error}</p>
       )}
     </div>
   );
