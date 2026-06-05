@@ -63,7 +63,9 @@ h2.font-display {
   text-wrap: balance;
 }
 
-/* Subtle paper grain — kills flat backgrounds, adds tactile warmth */
+/* Subtle paper grain — kills flat backgrounds, adds tactile warmth.
+   Promoted to its own stable GPU layer so mobile compositors don't
+   re-rasterize it into corrupted tiles while scrolling. */
 body::before {
   content: "";
   position: fixed;
@@ -72,6 +74,8 @@ body::before {
   pointer-events: none;
   opacity: 0.5;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Keep real content above the grain layer */
@@ -233,10 +237,15 @@ section[id] {
   transition:
     opacity 0.6s var(--ease-out),
     transform 0.6s var(--ease-out);
-  will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;
+  transform: none;
+}
+/* Once revealed, drop the transform entirely so no compositor layer or
+   stacking context lingers over the fixed grain background. */
+.reveal.is-settled {
+  transition: none;
   transform: none;
 }
 

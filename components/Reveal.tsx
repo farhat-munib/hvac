@@ -25,6 +25,7 @@ export default function Reveal({
   const Tag = (as ?? "div") as ElementType;
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+  const [settled, setSettled] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -35,6 +36,7 @@ export default function Reveal({
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
     ) {
       setVisible(true);
+      setSettled(true);
       return;
     }
 
@@ -55,11 +57,21 @@ export default function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  // After the fade finishes, flatten the element so no transformed
+  // compositor layer lingers (prevents mobile scroll paint artifacts).
+  useEffect(() => {
+    if (!visible) return;
+    const t = setTimeout(() => setSettled(true), 700 + delay);
+    return () => clearTimeout(t);
+  }, [visible, delay]);
+
   return (
     <Tag
       ref={ref}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      className={`reveal ${visible ? "is-visible" : ""} ${
+        settled ? "is-settled" : ""
+      } ${className}`.trim()}
+      style={!settled && delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </Tag>
